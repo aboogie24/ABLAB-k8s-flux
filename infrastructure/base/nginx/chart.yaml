@@ -1,7 +1,7 @@
 # Grab the nginx ingress controller chart
 
 apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: helmChart
+kind: HelmChart
 metadata: 
   name: nginx
   namespace: nginx 
