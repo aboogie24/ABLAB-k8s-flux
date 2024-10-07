@@ -10,3 +10,7 @@ parameters:
   share: /mnt/pve/k8sContainers
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
+mountOptions:
+  - nfsvers=3
+  - nolock
+  - hard
