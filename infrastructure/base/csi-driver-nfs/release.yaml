@@ -9,6 +9,9 @@ spec:
     spec:
       chart: csi-driver-nfs
       version: v4.9.x
+      sourceRef:
+        kind: HelmRepository
+        name: csi-driver-nfs
   interval: 1h0m0s
   install:
     remediation:
