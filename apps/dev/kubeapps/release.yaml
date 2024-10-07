@@ -6,8 +6,8 @@ metadata:
 spec: 
   chart: 
     spec:
-      chart: kubeapps
-      version: 2.11.0
+      chart: bitnami/kubeapps
+      version: 17.0.0
       interval: 5h 
       sourceRef:
         kind: HelmRepository
