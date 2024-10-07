@@ -2,4 +2,4 @@ resources:
   - ./nginx
   - ./metallb
   #- ./rook
-  - ./csi-driver-nfs
+  #- ./csi-driver-nfs
