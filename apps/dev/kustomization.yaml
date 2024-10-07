@@ -1,3 +1,4 @@
 resources:
   - ../base
   - ./app1
+  - ./kubeapps
