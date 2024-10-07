@@ -6,8 +6,8 @@ metadata:
 spec: 
   chart: 
     spec:
-      chart: bitnami/kubeapps
-      version: v2.11.0
+      chart: kubeapps
+      version: 2.11.0
       interval: 5h 
       sourceRef:
         kind: HelmRepository
@@ -23,7 +23,8 @@ metadata:
   name: kubeapps
   namespace: kubeapps
 spec: 
-  url: https://charts.bitnami.com/bitnami
+  url: oci://registry-1.docker.io/bitnamicharts
+  type: oci
 
 ---
 
