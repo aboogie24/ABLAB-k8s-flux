@@ -4,5 +4,5 @@ metadata:
   name: harbor
   namespace: harbor
 spec: 
-  url: oci://ghcr.io/nginxinc/charts
+  url: oci://registry-1.docker.io/bitnamicharts
   type: oci 
