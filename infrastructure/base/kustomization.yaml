@@ -1,4 +1,5 @@
 resources:
   - ./nginx
   - ./metallb
-  - ./rook
+  #- ./rook
+  - ./csi-driver-nfs
