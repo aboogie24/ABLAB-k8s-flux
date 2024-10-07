@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: harbor
+  namespace: harbor
+data:
+  custom-values.yaml: |
+    externalURL: https://harbor.alfredbrowniii.io
+    exposureType: ingress
+    ingress:
+      core:
+        ingressClassName: nginx
