@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: index-html-configmap
+  namespace: app1
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Welcome to my app!</title>
+    </head>
+    <body>
+        <h1>Hello from Kubernetes!</h1>
+        <p>This is a custom index.html file.</p>
+    </body>
+    </html>
