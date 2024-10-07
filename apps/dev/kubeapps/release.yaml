@@ -6,7 +6,7 @@ metadata:
 spec: 
   chart: 
     spec:
-      chart: bitnami/kubeapps
+      chart: kubeapps
       version: 17.0.0
       interval: 5h 
       sourceRef:
