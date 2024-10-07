@@ -8,10 +8,10 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "app1.alfredbrowniii.io"
+  - host: app1.alfredbrowniii.io
     http:
       paths:
-      - path: /app1(/|$)(.*)
+      - path: /(.*)
         pathType: Prefix
         backend:
           service:
