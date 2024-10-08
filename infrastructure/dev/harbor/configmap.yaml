@@ -10,19 +10,20 @@ data:
     ingress:
       core:
         ingressClassName: nginx
-    postgresql:
-      primary:
-        podSecurityContext: 
-          fsGroup: 1001
-          runAsUser: 1001
-        containerSecurityContext:
-          runAsUser: 1001
-    redis: 
-      master: 
-        podSecurityContext: 
-          fsGroup: 1001
-          runAsUser: 1001
-        containerSecurityContext:
-          runAsUser: 1001
+    
+    # postgresql:
+    #   primary:
+    #     podSecurityContext: 
+    #       fsGroup: 1001
+    #       runAsUser: 1001
+    #     containerSecurityContext:
+    #       runAsUser: 1001
+    # redis: 
+    #   master: 
+    #     podSecurityContext: 
+    #       fsGroup: 1001
+    #       runAsUser: 1001
+    #     containerSecurityContext:
+    #       runAsUser: 1001
         
         
