@@ -8,5 +8,8 @@ data:
     frontend: 
       service: 
         type: ClusterIP
+    ingress: 
+      enabled: true
+      hostname: kubeapps.alfredbrowniii.io
         
         
