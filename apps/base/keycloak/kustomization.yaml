@@ -1,2 +1,4 @@
 resources:
-  - namespace.yml
+  - secret.yaml
+  - configmap.yaml
+  - release.yaml
