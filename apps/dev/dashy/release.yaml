@@ -1,0 +1,38 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2 
+kind: HelmRelease
+metadata:
+  name: dashy
+  namespace: dashy
+spec: 
+  chart: 
+    spec:
+      chart: selfhosted-helmcharts/dashy
+      #version: 17.0.0
+      interval: 5h 
+      sourceRef:
+        kind: HelmRepository
+        name: dashy
+  interval: 1h 
+  releaseName: dashy
+  valuesFrom: 
+    - kind: ConfigMap 
+      name: dashy
+      valuesKey: custom-values.yaml
+
+---
+
+apiVersion: source.toolkit.fluxcd.io/v1beta2 
+kind: HelmRepository
+metadata:
+  name: dashy
+  namespace: dashy
+spec: 
+  url: https://vyrtualsynthese.github.io/selfhosted-helmcharts/
+
+---
+
+apiVersion: v1 
+kind: Namespace 
+metadata: 
+  name: dashy
+  
