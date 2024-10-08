@@ -7,11 +7,16 @@ spec:
   chart: 
     spec:
       chart: harbor
-      version: 24.0.0
+      version: 1.15.1
       interval: 5h 
       sourceRef:
         kind: HelmRepository
         name: harbor
   interval: 1h 
   releaseName: harbor
+  valuesFrom: 
+    - kind: ConfigMap 
+      name: harbor
+      valuesKey: custom-values.yaml
+
   
