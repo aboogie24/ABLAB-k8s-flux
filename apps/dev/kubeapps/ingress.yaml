@@ -4,8 +4,9 @@ metadata:
   name: kubeapps
   namespace: kubeapps
   annotations:
-    kubernetes.io/ingress.class: nginx 
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  ingressClassName: nginx
   rules:
   - host: kubeapps.alfredbrowniii.io
     http:
