@@ -6,7 +6,7 @@ metadata:
 spec: 
   chart: 
     spec:
-      chart: selfhosted-helmcharts/dashy
+      chart: dashy
       #version: 17.0.0
       interval: 5h 
       sourceRef:
