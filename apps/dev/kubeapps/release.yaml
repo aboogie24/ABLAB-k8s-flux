@@ -17,7 +17,7 @@ spec:
   valuesFrom: 
     - kind: ConfigMap 
       name: kubeapps
-      valuesKey: values.yaml
+      valuesKey: custom-values.yaml
 
 ---
 
