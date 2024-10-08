@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: harbor
-  namespace: harbor
+  name: kubeapps
+  namespace: kubeapps
 data:
   custom-values.yaml: |
     frontend: 
       service: 
-        type: LoadBalancer
+        type: ClusterIP
         
         

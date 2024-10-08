@@ -14,6 +14,10 @@ spec:
         name: kubeapps
   interval: 1h 
   releaseName: kubeapps
+  valuesFrom: 
+    - kind: ConfigMap 
+      name: kubeapps
+      valuesKey: values.yml
 
 ---
 
