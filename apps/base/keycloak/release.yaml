@@ -1,0 +1,38 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2 
+kind: HelmRelease
+metadata:
+  name: keycloak
+  namespace: keycloak
+spec: 
+  chart: 
+    spec:
+      chart: keycloak
+      version: 23.0.0
+      interval: 5h 
+      sourceRef:
+        kind: HelmRepository
+        name: keycloak
+  interval: 1h 
+  releaseName: keycloak
+  valuesFrom: 
+    - kind: ConfigMap 
+      name: keycloak-custom-config
+      valuesKey: custom-values.yaml
+
+---
+
+apiVersion: source.toolkit.fluxcd.io/v1beta2 
+kind: HelmRepository
+metadata:
+  name: keycloak
+  namespace: keycloak
+spec: 
+  url: oci://registry-1.docker.io/bitnamicharts/
+
+---
+
+apiVersion: v1 
+kind: Namespace 
+metadata: 
+  name: keycloak
+  

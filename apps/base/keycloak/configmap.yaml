@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: keycloak-custom-config
+  namespace: keycloak
+data:
+  custom-values.yaml: |
+    auth: 
+      adminUser: admin
+      adminPassword: 
+        valuesfrom: 
+          secretKeyRef: 
+            name: keycloak-secret
+            key: admin-password
+    extraEnv: 
+      - name: KEYCLOAK_USER
+        value: admin
+      - name: KEYCLOAK_PASSWORD
+        valueFrom: 
+          secretKeyRef: 
+            name: keycloak-secret
+            key: admin-password
+    postgresql: 
+      enabled: true
+    ingress: 
+      enabled: true
+      ingressClassName: nginx
+      hostname: keycloak.alfredbrowniii.io
