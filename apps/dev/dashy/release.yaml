@@ -18,7 +18,9 @@ spec:
     - kind: ConfigMap 
       name: dashy
       valuesKey: custom-values.yaml
-
+    - kind: ConfigMap
+      name: dashy-context
+      valuesKey: context-values.yaml
 ---
 
 apiVersion: source.toolkit.fluxcd.io/v1beta2 

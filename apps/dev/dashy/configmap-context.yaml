@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: dashy
+  name: dashy-context
   namespace: dashy
 data:
   context-values.yaml: |
