@@ -2,3 +2,4 @@ resources:
   - release.yaml
   - configmap.yaml
   - secret.yaml
+  - ingress.yaml
