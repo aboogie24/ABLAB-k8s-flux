@@ -14,4 +14,9 @@ spec:
         name: nginx
   interval: 1h 
   releaseName: nginx
+  values: 
+    controller:
+      ingressClassResource: 
+        default: true
+        
   
