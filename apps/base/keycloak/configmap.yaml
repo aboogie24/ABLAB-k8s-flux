@@ -12,6 +12,9 @@ data:
           secretKeyRef: 
             name: keycloak-secret
             key: admin-password
+    adminIngress: 
+      enabled: true
+      hostname: keycloak.alfredbrowniii.io
     extraEnv: 
       - name: KEYCLOAK_USER
         value: admin
@@ -39,4 +42,104 @@ data:
           paths: 
             - path: / 
               pathType: Prefix
+    keycloakConfigCli:
+      enabled: true
+      configuration:
+        master.json: |
+          {
+            "realm": "master",
+            "displayName": "rancher Keycloak",
+            "accessTokenLifespan": 86400,
+            "ssoSessionMaxLifespan": 86400,
+            "clients": [
+              {
+                "clientId": "rancher-roc-gui",
+                "name": "rancher ROC GUI",
+                "rootUrl": "http://rancher-roc-gui:31194",
+                "adminUrl": "http://rancher-roc-gui:31194",
+                "enabled": true,
+                "clientAuthenticatorType": "client-secret",
+                "redirectUris": [
+                  "http://rancher-roc-gui:8183/*",
+                  "http://localhost:8183/*",
+                  "http://localhost:4200/*",
+                  "http://rancher-roc-gui:31194/*"
+                ],
+                "webOrigins": [
+                  "http://localhost:8183",
+                  "http://localhost:4200",
+                  "http://rancher-roc-gui:8183",
+                  "http://rancher-roc-gui:31194"
+                ],
+                "protocol": "openid-connect",
+                "fullScopeAllowed": true,
+                "defaultClientScopes": [
+                  "profile",
+                  "email"
+                ],
+                "optionalClientScopes": [
+                  "roles",
+                  "groups",
+                  "offline_access"
+                ]
+              }
+            ],
+            "clientScopes": [
+              {
+                "name": "groups",
+                "description": "Groups scope",
+                "protocol": "openid-connect",
+                "attributes": {
+                  "include.in.token.scope": "true",
+                  "display.on.consent.screen": "true"
+                },
+                "protocolMappers": [
+                  {
+                    "name": "Groups Mapper",
+                    "protocol": "openid-connect",
+                    "protocolMapper": "oidc-group-membership-mapper",
+                    "consentRequired": false,
+                    "config": {
+                      "full.path": "false",
+                      "id.token.claim": "true",
+                      "access.token.claim": "true",
+                      "claim.name": "groups",
+                      "userinfo.token.claim": "true"
+                    }
+                  }
+                ]
+              }
+            ],
+            "groups": [
+              {
+                "name": "rancherROCAdmin",
+                "path": "/rancherROCAdmin"
+              }
+            ],
+            "users": [
+              {
+                "username" : "andy",
+                "enabled" : true,
+                "totp" : false,
+                "emailVerified" : false,
+                "firstName" : "Alice",
+                "lastName" : "Admin",
+                "email" : "alicea@opennetworking.org",
+                "credentials": [
+                  {
+                    "type": "password",
+                    "value": "password"
+                  }
+                ],
+                "realmRoles" : [ "default-roles-master" ],
+                "groups" : [ "/rancherROCAdmin" ],
+                "clientRoles": {
+                  "account": [
+                    "view-profile",
+                    "manage-account"
+                  ]
+                },
+              }
+            ]
+          }
 
