@@ -11,7 +11,7 @@ spec:
     branch: main
   secretRef:
     name: flux-system
-  url: https://github.com/aboogie24/ABLAB-k8s-flux.git
+  url: ssh://git@github.com/aboogie24/ABLAB-k8s-flux
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
