@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: glambychyna
+  namespace: glambychyna
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: glambychyna
+  template:
+    metadata:
+      labels:
+        app: glambychyna
+    spec:
+      containers:
+      - name: glambychyna
+        image: aboogie/glambychyna:0.0.14
+        ports:
+        - containerPort: 8080
+        
