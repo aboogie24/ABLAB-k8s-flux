@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: glambychyna
-        image: aboogie/glambychyna:0.0.14
+        image: aboogie/glambychyna:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         
