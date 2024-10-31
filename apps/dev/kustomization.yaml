@@ -3,4 +3,4 @@ resources:
   - ./app1
   #- ./kubeapps
   - ./dashy
-  #- ./glambychyna
+  - ./glambychyna
