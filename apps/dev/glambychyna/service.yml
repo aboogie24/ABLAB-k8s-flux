@@ -4,9 +4,10 @@ metadata:
   name: glambychyna-service
   namespace: glambychyna
 spec:
+  type: ClusterIP
   selector:
     app: glambychyna
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8080
+      targetPort: 80
