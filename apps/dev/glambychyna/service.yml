@@ -4,7 +4,7 @@ metadata:
   name: glambychyna-service
   namespace: glambychyna
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: glambychyna
   ports:
