@@ -7,7 +7,7 @@ spec:
   chart: 
     spec:
       chart: harbor
-      version: 1.15.1
+      version: 1.15.2
       interval: 5h 
       sourceRef:
         kind: HelmRepository
