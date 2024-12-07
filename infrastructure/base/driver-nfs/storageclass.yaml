@@ -11,6 +11,10 @@ parameters:
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 mountOptions:
-  - nfsvers=3
-  - nolock
+  - nfsvers=4.1  # NFSv4.1 is preferred for better performance
   - hard
+  - noatime
+  - nodiratime
+  - rsize=1048576
+  - wsize=1048576
+  - timeo=600
