@@ -11,6 +11,21 @@ data:
       host: 
         core: harbor.alfredbrowniii.io
       className: nginx
+    database:
+      internal:
+        podSecurityContext:
+          fsGroup: 999  # postgres user ID
+          runAsUser: 999
+          runAsGroup: 999
+        containerSecurityContext:
+          runAsUser: 999
+          runAsGroup: 999
+          runAsNonRoot: true
+        initContainerSecurityContext:
+          runAsUser: 999
+          runAsGroup: 999
+          runAsNonRoot: true
+
  
         
         
