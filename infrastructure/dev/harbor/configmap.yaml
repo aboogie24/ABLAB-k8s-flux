@@ -8,24 +8,21 @@ data:
     externalURL: https://harbor.alfredbrowniii.io
     exposureType: ingress
     ingress:
-      host: 
-        core: harbor.alfredbrowniii.io
-      className: nginx
-    database:
-      internal:
-        podSecurityContext:
-          fsGroup: 999  # postgres user ID
-          runAsUser: 999
-          runAsGroup: 999
+      core:
+        ingressClassName: nginx
+    postgresql:
+      primary:
+        podSecurityContext: 
+          fsGroup: 1001
+          runAsUser: 1001
         containerSecurityContext:
-          runAsUser: 999
-          runAsGroup: 999
-          runAsNonRoot: true
-        initContainerSecurityContext:
-          runAsUser: 999
-          runAsGroup: 999
-          runAsNonRoot: true
-
- 
+          runAsUser: 1001
+    redis: 
+      master: 
+        podSecurityContext: 
+          fsGroup: 1001
+          runAsUser: 1001
+        containerSecurityContext:
+          runAsUser: 1001
         
         
