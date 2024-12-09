@@ -13,16 +13,16 @@ data:
     postgresql:
       primary:
         podSecurityContext: 
-          fsGroup: k8s
-          runAsUser: k8s
+          fsGroup: 1000
+          runAsUser: 1001
         containerSecurityContext:
-          runAsUser: k8s
+          runAsUser: 1001
     redis: 
       master: 
         podSecurityContext: 
-          fsGroup: k8s
-          runAsUser: k8s
+          fsGroup: 1000
+          runAsUser: 1001
         containerSecurityContext:
-          runAsUser: k8s
+          runAsUser: 1001
         
         
