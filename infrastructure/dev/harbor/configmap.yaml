@@ -10,29 +10,67 @@ data:
     ingress:
       core:
         ingressClassName: nginx
-    postgresql:
-      primary:
-        podSecurityContext: 
+
+    database:
+      type: internal
+      internal:
+        extrInitContainers:
+          - name: data-migrator
+            image: goharbor/harbor-db:v2.4.1
+            command: ["/bin/sh"]
+            args:
+              - -c
+              - '[ -e /var/lib/postgresql/data/postgresql.conf ] && [ ! -d /var/lib/postgresql/data/pgdata ] && mkdir -m 0700 /var/lib/postgresql/data/pgdata && mv /var/lib/postgresql/data/* /var/lib/postgresql/data/pgdata/ || true'
+            volumeMounts:
+              - name: database-data
+                mountPath: /var/lib/postgresql/data
+                subPath: null
+          - name: data-permissions-ensurer
+            image: goharbor/harbor-db:v2.4.1
+            command: ["/bin/sh"]
+            args:
+              - -c
+              - chmod -R 700 /var/lib/postgresql/data/pgdata || true
+            volumeMounts:
+              - name: database-data
+                mountPath: /var/lib/postgresql/data
+                subPath: null
+          - name: data-ownership-ensurer
+            image: goharbor/harbor-db:v2.4.1
+            command: ["/bin/sh"]
+            args:
+              - -c
+              - chown -R 999:999 /var/lib/postgresql/data || true
+            volumeMounts:
+              - name: database-data
+                mountPath: /var/lib/postgresql/data
+                subPath: null
+        securityContext:
           fsGroup: 999
           runAsUser: 999
-        containerSecurityContext:
-          runAsUser: 999
-        initContainers:
-          - name: fix-permissions
-            image: busybox
-            command:
-              - sh
-              - -c
-              - |
-                mkdir -p /var/lib/postgresql/data/pgdata/pg15
-                chown -R 999:999 /var/lib/postgresql/data
-                chmod 700 /var/lib/postgresql/data/pgdata/pg15
-                chmod 700 /var/lib/postgresql/data
-            volumeMounts:
-              - name: data
-                mountPath: /var/lib/postgresql/data
-            securityContext:
-              runAsUser: 0
+    # postgresql:
+    #   primary:
+    #     podSecurityContext: 
+    #       fsGroup: 999
+    #       runAsUser: 999
+    #     containerSecurityContext:
+    #       runAsUser: 999
+    #     initContainers:
+    #       - name: fix-permissions
+    #         image: busybox
+    #         command:
+    #           - sh
+    #           - -c
+    #           - |
+    #             mkdir -p /var/lib/postgresql/data/pgdata/pg15
+    #             chown -R 999:999 /var/lib/postgresql/data
+    #             chmod 700 /var/lib/postgresql/data/pgdata/pg15
+    #             chmod 700 /var/lib/postgresql/data
+    #         volumeMounts:
+    #           - name: data
+    #             mountPath: /var/lib/postgresql/data
+    #         securityContext:
+    #           runAsUser: 0
     redis: 
       master: 
         podSecurityContext: 
