@@ -5,6 +5,9 @@ metadata:
   namespace: gitlab
 data:
   custom-values.yaml: |
+    global: 
+      ingress: 
+        configureCertmanager: false
     
 
         
