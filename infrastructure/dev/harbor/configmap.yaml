@@ -64,29 +64,6 @@ data:
         securityContext:
           fsGroup: 999
           runAsUser: 999
-    # postgresql:
-    #   primary:
-    #     podSecurityContext: 
-    #       fsGroup: 999
-    #       runAsUser: 999
-    #     containerSecurityContext:
-    #       runAsUser: 999
-    #     initContainers:
-    #       - name: fix-permissions
-    #         image: busybox
-    #         command:
-    #           - sh
-    #           - -c
-    #           - |
-    #             mkdir -p /var/lib/postgresql/data/pgdata/pg15
-    #             chown -R 999:999 /var/lib/postgresql/data
-    #             chmod 700 /var/lib/postgresql/data/pgdata/pg15
-    #             chmod 700 /var/lib/postgresql/data
-    #         volumeMounts:
-    #           - name: data
-    #             mountPath: /var/lib/postgresql/data
-    #         securityContext:
-    #           runAsUser: 0
     redis: 
       master: 
         podSecurityContext: 
@@ -94,19 +71,6 @@ data:
           runAsUser: 999
         containerSecurityContext:
           runAsUser: 999
-    # postgresql:
-    #   primary:
-    #     podSecurityContext: 
-    #       fsGroup: 1000
-    #       runAsUser: 1001
-    #     containerSecurityContext:
-    #       runAsUser: 1001
-    # redis: 
-    #   master: 
-    #     podSecurityContext: 
-    #       fsGroup: 1000
-    #       runAsUser: 1001
-    #     containerSecurityContext:
-    #       runAsUser: 1001
+
         
         
