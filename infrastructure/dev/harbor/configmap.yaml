@@ -13,16 +13,31 @@ data:
     postgresql:
       primary:
         podSecurityContext: 
-          fsGroup: 1000
-          runAsUser: 1001
+          fsGroup: 999
+          runAsUser: 999
         containerSecurityContext:
-          runAsUser: 1001
+          runAsUser: 999
+          runAsNonRoot: true
     redis: 
       master: 
         podSecurityContext: 
-          fsGroup: 1000
-          runAsUser: 1001
+          fsGroup: 999
+          runAsUser: 999
         containerSecurityContext:
-          runAsUser: 1001
+          runAsUser: 999
+    # postgresql:
+    #   primary:
+    #     podSecurityContext: 
+    #       fsGroup: 1000
+    #       runAsUser: 1001
+    #     containerSecurityContext:
+    #       runAsUser: 1001
+    # redis: 
+    #   master: 
+    #     podSecurityContext: 
+    #       fsGroup: 1000
+    #       runAsUser: 1001
+    #     containerSecurityContext:
+    #       runAsUser: 1001
         
         
