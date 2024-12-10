@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2 
+kind: HelmRelease
+metadata:
+  name: gitlab
+  namespace: gitlab
+spec: 
+  chart: 
+    spec:
+      chart: gitlab
+      version: 8.6.1
+      interval: 5h 
+      sourceRef:
+        kind: HelmRepository
+        name: gitlab
+  interval: 1h 
+  releaseName: gitlab/gitlab
+  valuesFrom: 
+    - kind: ConfigMap 
+      name: gitlab
+      valuesKey: custom-values.yaml
+
+  

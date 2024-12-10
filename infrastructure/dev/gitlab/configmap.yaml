@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: harbor
+  namespace: harbor
+data:
+  custom-values.yaml: |
+    
+
+        
+        
