@@ -14,4 +14,7 @@ mountOptions:
   - nfsvers=3
   - nolock
   - hard
+  - intr
+  - noatime 
+  - nodiratime
 
