@@ -6,7 +6,11 @@ metadata:
 data:
   custom-values.yaml: |
     externalURL: https://harbor.alfredbrowniii.io
-    exposureType: ingress
+    expose: 
+      type: ingress
+      ingress: 
+        host: 
+          core: harbor.alfredbrowniii.io
     ingress:
       core:
         ingressClassName: nginx
