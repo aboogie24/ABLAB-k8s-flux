@@ -9,7 +9,7 @@ data:
     expose: 
       type: ingress
       ingress: 
-        host: 
+        hosts: 
           core: harbor.alfredbrowniii.io
         className: nginx
 
