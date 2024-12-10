@@ -8,6 +8,8 @@ data:
     externalURL: https://harbor.alfredbrowniii.io
     expose: 
       type: ingress
+      tls: 
+        enabled: false
       ingress: 
         hosts: 
           core: harbor.alfredbrowniii.io
