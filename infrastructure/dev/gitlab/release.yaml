@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: gitlab
   interval: 1h 
-  releaseName: gitlab/gitlab
+  releaseName: gitlab
   valuesFrom: 
     - kind: ConfigMap 
       name: gitlab
