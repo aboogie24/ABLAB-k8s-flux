@@ -25,7 +25,7 @@ data:
               - name: database-data
                 mountPath: /var/lib/postgresql/data
                 subPath: null
-          - name: data-permissions-ensurer
+          - name: data-permissions-ensurer2
             image: goharbor/harbor-db:v2.4.1
             command: ["/bin/sh"]
             args:
