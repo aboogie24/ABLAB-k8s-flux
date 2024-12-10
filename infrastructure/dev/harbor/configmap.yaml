@@ -13,6 +13,7 @@ data:
           core: harbor.alfredbrowniii.io
         className: nginx
 
+
     database:
       type: internal
       internal:
