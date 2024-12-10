@@ -40,7 +40,7 @@ data:
             command: ["/bin/sh"]
             args:
               - -c
-              - mkdir /var/lib/postgresql/data/pgdata/pg15
+              - mkdir -p /var/lib/postgresql/data/pgdata/pg15
               - chmod -R 700 /var/lib/postgresql/data/pgdata/pg15 || true
             volumeMounts:
               - name: database-data
