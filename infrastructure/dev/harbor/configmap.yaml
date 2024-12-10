@@ -11,9 +11,7 @@ data:
       ingress: 
         host: 
           core: harbor.alfredbrowniii.io
-    ingress:
-      core:
-        ingressClassName: nginx
+        className: nginx
 
     database:
       type: internal
