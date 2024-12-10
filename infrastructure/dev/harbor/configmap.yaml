@@ -17,27 +17,16 @@ data:
           runAsUser: 999
         containerSecurityContext:
           runAsUser: 999
-          runAsNonRoot: true
-        persistence:
-          enabled: true
-          accessModes:
-            - ReadWriteOnce
-          mountPath: /var/lib/postgresql/data
-        extraVolumeMounts:
-          - name: dshm
-            mountPath: /dev/shm
-        extraVolumes:
-          - name: dshm
-            emptyDir:
-              medium: Memory
         initContainers:
-          - name: init-chmod-data
+          - name: fix-permissions
             image: busybox
             command:
               - sh
               - -c
               - |
+                mkdir -p /var/lib/postgresql/data/pgdata/pg15
                 chown -R 999:999 /var/lib/postgresql/data
+                chmod 700 /var/lib/postgresql/data/pgdata/pg15
                 chmod 700 /var/lib/postgresql/data
             volumeMounts:
               - name: data
