@@ -9,7 +9,7 @@ data:
       edition: ce
       hosts:
         https: false
-        domain: gitlab.alfredbrowniii.io
+        domain: alfredbrowniii.io
         externalIP: 10.0.4.247
       kas:
         enabled: false
