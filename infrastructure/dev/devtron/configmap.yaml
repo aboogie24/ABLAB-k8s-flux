@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: devtron
-  namespace: devtron
+  namespace: devtroncd
 data:
   custom-values.yaml: |
     global:
