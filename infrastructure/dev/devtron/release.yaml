@@ -32,7 +32,7 @@ spec:
   releaseName: devtron-operator
   valuesFrom: 
     - kind: ConfigMap 
-      name: devtron
+      name: devtroncd
       valuesKey: custom-values.yaml
 
   
