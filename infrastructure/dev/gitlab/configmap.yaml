@@ -5,6 +5,8 @@ metadata:
   namespace: gitlab
 data:
   custom-values.yaml: |
+    certmanager-issuer:
+      email: alfred.brown@alfredbrowniii.io
     global:
       edition: ce
       hosts:
