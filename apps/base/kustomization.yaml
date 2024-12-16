@@ -1,3 +1,4 @@
 resources:
   - test.yaml
+  - ./dashboard
   #- ./keycloak

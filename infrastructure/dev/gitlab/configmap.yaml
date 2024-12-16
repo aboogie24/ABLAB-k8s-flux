@@ -5,7 +5,14 @@ metadata:
   namespace: gitlab
 data:
   custom-values.yaml: |
-    global: 
+    global:
+      edition: ce
+      hosts:
+        https: false
+        domain: gitlab.alfredbrowniii.io
+        externalIP: 10.0.4.247
+      kas:
+        enabled: false
       ingress: 
         configureCertmanager: false
     
