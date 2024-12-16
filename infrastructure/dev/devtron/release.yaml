@@ -11,7 +11,7 @@ spec:
       interval: 5h 
       sourceRef:
         kind: HelmRepository
-        name: devtron
+        name: operator
   interval: 1h 
   releaseName: devtron
   valuesFrom: 
