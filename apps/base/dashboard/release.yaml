@@ -27,7 +27,7 @@ metadata:
   namespace: dashboard
 spec: 
   url: https://kubernetes.github.io/dashboard/
-  type: oci
+  
 
 ---
 
