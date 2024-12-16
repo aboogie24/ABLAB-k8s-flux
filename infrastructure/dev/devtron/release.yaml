@@ -3,7 +3,12 @@ kind: HelmRelease
 metadata:
   name: devtron
   namespace: devtron
-spec: 
+spec:
+  patches: 
+    - patch: | 
+        - op: replace
+          path: /metadata/namespace
+          value: devtron-cd
   chart: 
     spec:
       chart: devtron-operator
