@@ -6,12 +6,12 @@ metadata:
 spec: 
   chart: 
     spec:
-      chart: devtron
+      chart: devtron-operator
       version: 1.0.1
       interval: 5h 
       sourceRef:
         kind: HelmRepository
-        name: operator
+        name: devtron
   interval: 1h 
   releaseName: devtron
   valuesFrom: 
