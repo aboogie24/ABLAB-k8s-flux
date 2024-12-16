@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2 
+kind: HelmRelease
+metadata:
+  name: devtron
+  namespace: devtron
+spec: 
+  chart: 
+    spec:
+      chart: devtron
+      version: 1.0.1
+      interval: 5h 
+      sourceRef:
+        kind: HelmRepository
+        name: devtron
+  interval: 1h 
+  releaseName: devtron
+  valuesFrom: 
+    - kind: ConfigMap 
+      name: devtron
+      valuesKey: custom-values.yaml
+
+  

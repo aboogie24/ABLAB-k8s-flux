@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: devtron
+  namespace: devtron
+data:
+  custom-values.yaml: |
+
+    
+
+        
+        
