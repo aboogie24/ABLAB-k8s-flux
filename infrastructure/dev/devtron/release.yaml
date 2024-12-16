@@ -7,13 +7,13 @@ spec:
   chart: 
     spec:
       chart: devtron-operator
-      version: 1.0.1
+      version: 0.22.78
       interval: 5h 
       sourceRef:
         kind: HelmRepository
         name: devtron
   interval: 1h 
-  releaseName: devtron
+  releaseName: devtron-operator
   valuesFrom: 
     - kind: ConfigMap 
       name: devtron
