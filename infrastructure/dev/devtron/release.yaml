@@ -5,13 +5,21 @@ metadata:
   namespace: devtron
 spec:
   patches: 
-    - patch: | 
-        - op: replace
-          path: /metadata/namespace
-          value: devtron-cd
-      target: 
-        kind: Secret 
+  - patch: | 
+      apiVersion: v1
+      kind: Secret
+      metadata:
         name: argocd-secret
+        namespace: devtron-cd
+        labels:
+          app.kubernetes.io/name: argocd-secret
+          app.kubernetes.io/part-of: argocd
+        annotations:
+          "helm.sh/resource-policy": keep
+    target: 
+      kind: Secret 
+      name: argocd-secret
+      labelSelector: "app.kubernetes.io/name=argocd-secret"
   chart: 
     spec:
       chart: devtron-operator
