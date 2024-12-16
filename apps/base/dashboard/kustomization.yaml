@@ -1,3 +1,4 @@
 resources:
   - configmap.yaml
   - release.yaml
+  - user.yaml
