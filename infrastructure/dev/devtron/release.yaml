@@ -30,9 +30,9 @@ spec:
         name: devtron
   interval: 1h 
   releaseName: devtron-operator
-  valuesFrom: 
-    - kind: ConfigMap 
-      name: devtroncd
-      valuesKey: custom-values.yaml
+  # valuesFrom: 
+  #   - kind: ConfigMap 
+  #     name: devtroncd
+  #     valuesKey: custom-values.yaml
 
   
