@@ -26,6 +26,8 @@ spec:
         namespace: flux-system
   values:
     # Your values here - they can also be in a separate values.yaml
+    image:
+      debug: true
     global:
       postgresql:
         auth:
