@@ -28,6 +28,9 @@ spec:
     # Your values here - they can also be in a separate values.yaml
     image:
       debug: true
+    extraEnvVars: 
+      - name: BITNAMI_DEBUG
+        value: "true"
     global:
       postgresql:
         auth:
