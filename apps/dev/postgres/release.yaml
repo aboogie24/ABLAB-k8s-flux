@@ -28,6 +28,28 @@ spec:
     # Your values here - they can also be in a separate values.yaml
     image:
       debug: true
+    podSecurityContext:
+      enabled: true
+      fsGroup: 999
+      runAsUser: 999
+      runAsNonRoot: true
+
+    # Container-level security context
+    containerSecurityContext:
+      enabled: true
+      runAsUser: 999
+      runAsNonRoot: true
+      allowPrivilegeEscalation: false
+      privileged: false
+      readOnlyRootFilesystem: false
+      capabilities:
+        drop: ["ALL"]
+
+    # For init containers if needed
+    volumePermissions:
+      enabled: true
+      securityContext:
+        runAsUser: 0
     extraEnvVars: 
       - name: BITNAMI_DEBUG
         value: "true"
