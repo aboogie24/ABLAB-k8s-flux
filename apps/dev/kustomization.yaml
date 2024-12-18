@@ -4,4 +4,4 @@ resources:
   #- ./kubeapps
   - ./dashy
   - ./glambychyna
-  #- ./postgres
+  - ./postgres
