@@ -30,14 +30,14 @@ spec:
       debug: true
     podSecurityContext:
       enabled: true
-      fsGroup: 999
-      runAsUser: 999
+      fsGroup: 1001
+      runAsUser: 1001
       runAsNonRoot: true
 
     # Container-level security context
     containerSecurityContext:
       enabled: true
-      runAsUser: 999
+      runAsUser: 1001
       runAsNonRoot: true
       allowPrivilegeEscalation: false
       privileged: false
@@ -49,7 +49,7 @@ spec:
     volumePermissions:
       enabled: true
       securityContext:
-        runAsUser: 999
+        runAsUser: 1001
     extraEnvVars: 
       - name: BITNAMI_DEBUG
         value: "true"
