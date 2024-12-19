@@ -47,13 +47,13 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: user-controller
+      app: rbac-controller
   template:
     metadata:
       labels:
-        app: user-controller
+        app: rbac-controller
     spec:
-      serviceAccountName: user-controller
+      serviceAccountName: rbac-controller
       containers:
       - name: controller
         image: aboogie/rbac-controller:latest  # Replace with your image
