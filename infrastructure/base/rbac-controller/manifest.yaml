@@ -3,6 +3,12 @@ kind: ServiceAccount
 metadata:
   name: rbac-controller
   namespace: rbac-controller
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: rbac-controller
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
