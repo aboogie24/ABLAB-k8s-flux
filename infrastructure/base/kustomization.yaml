@@ -3,4 +3,4 @@ resources:
   - ./metallb
   #- ./rook
   - ./driver-nfs
-  - ./rbac-controller
+  #- ./rbac-controller
