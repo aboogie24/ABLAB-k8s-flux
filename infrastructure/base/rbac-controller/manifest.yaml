@@ -1,19 +1,13 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: rbac-controller
-  namespace: rbac-controller
-
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: rbac-controller
+  name: user-controller
+  namespace: default
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: rbac-controller
+  name: user-controller
 rules:
 - apiGroups: [""]
   resources: ["configmaps"]
@@ -24,49 +18,45 @@ rules:
 - apiGroups: ["certificates.k8s.io"]
   resources: ["certificatesigningrequests", "certificatesigningrequests/approval", "certificatesigningrequests/status"]
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+- apiGroups: ["rbac.authorization.k8s.io"]
+  resources: ["clusterroles"]
+  verbs: ["bind", "escalate"]  
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: rbac-controller
+  name: user-controller
 subjects:
 - kind: ServiceAccount
-  name: rbac-controller
-  namespace: rbac-controller
+  name: user-controller
+  namespace: default
 roleRef:
   kind: ClusterRole
-  name: rbac-controller
+  name: user-controller
   apiGroup: rbac.authorization.k8s.io
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rbac-controller
-  namespace: rbac-controller
+  name: user-controller
+  namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rbac-controller
+      app: user-controller
   template:
     metadata:
       labels:
-        app: rbac-controller
+        app: user-controller
     spec:
-      serviceAccountName: rbac-controller
+      serviceAccountName: user-controller
       containers:
       - name: controller
-        image: aboogie/rbac-controller:latest  # Replace with your image
-        resources:
-          requests:
-            cpu: "100m"
-            memory: "128Mi"
-          limits:
-            cpu: "500m"
-            memory: "256Mi"
+        image: aboogie/rbac-controller:latest # Replace with your image
         env:
         - name: GIT_REPO_URL
-          value: "https://your-git-repo-url"
+          value: "https://github.com/aboogie24/k8s-rbac-config.git"
         - name: GIT_REPO_PATH
           value: "/repo"
         - name: CERT_DIR
@@ -81,3 +71,15 @@ spec:
         emptyDir: {}
       - name: cert-volume
         emptyDir: {}
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-controller-trigger
+  namespace: default
+  labels:
+    app: user-controller
+data:
+  lastCommit: "initial"  # This will be updated by the controller
