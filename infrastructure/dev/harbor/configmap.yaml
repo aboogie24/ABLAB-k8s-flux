@@ -14,8 +14,6 @@ data:
         hosts: 
           core: harbor.alfredbrowniii.io
         className: nginx
-
-
     database:
       type: internal
       internal:
@@ -51,26 +49,26 @@ data:
               - name: database-data
                 mountPath: /var/lib/postgresql/data
                 subPath: null
-          - name: data-ownership-ensurer
-            image: goharbor/harbor-db:v2.4.1
-            command: ["/bin/sh"]
-            args:
-              - -c
-              - chown -R 999:999 /var/lib/postgresql/data || true
-            volumeMounts:
-              - name: database-data
-                mountPath: /var/lib/postgresql/data
-                subPath: null
+          # - name: data-ownership-ensurer
+          #   image: goharbor/harbor-db:v2.4.1
+          #   command: ["/bin/sh"]
+          #   args:
+          #     - -c
+          #     - chown -R 999:999 /var/lib/postgresql/data || true
+          #   volumeMounts:
+          #     - name: database-data
+          #       mountPath: /var/lib/postgresql/data
+          #       subPath: null
         securityContext:
-          fsGroup: 1001
-          runAsUser: 1001
+          fsGroup: 999
+          runAsUser: 999
     redis: 
       master: 
         podSecurityContext: 
-          fsGroup: 1001
-          runAsUser: 1001
+          fsGroup: 999
+          runAsUser: 999
         containerSecurityContext:
-          runAsUser: 1001
+          runAsUser: 999
 
         
         
