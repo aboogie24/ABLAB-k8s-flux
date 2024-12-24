@@ -49,16 +49,16 @@ data:
               - name: database-data
                 mountPath: /var/lib/postgresql/data
                 subPath: null
-          # - name: data-ownership-ensurer
-          #   image: goharbor/harbor-db:v2.4.1
-          #   command: ["/bin/sh"]
-          #   args:
-          #     - -c
-          #     - chown -R 999:999 /var/lib/postgresql/data || true
-          #   volumeMounts:
-          #     - name: database-data
-          #       mountPath: /var/lib/postgresql/data
-          #       subPath: null
+          - name: data-ownership-ensurer
+            image: goharbor/harbor-db:v2.4.1
+            command: ["/bin/sh"]
+            args:
+              - -c
+              - chown -R 999:999 /var/lib/postgresql/data || true
+            volumeMounts:
+              - name: database-data
+                mountPath: /var/lib/postgresql/data
+                subPath: null
         securityContext:
           fsGroup: 999
           runAsUser: 999
