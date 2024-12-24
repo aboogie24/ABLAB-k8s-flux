@@ -14,10 +14,10 @@ spec:
         name: keycloak
   interval: 1h 
   releaseName: keycloak
-  # valuesFrom: 
-  #   - kind: ConfigMap 
-  #     name: keycloak-custom-config
-  #     valuesKey: custom-values.yaml
+  valuesFrom: 
+    - kind: ConfigMap 
+      name: keycloak-custom-config
+      valuesKey: custom-values.yaml
 
 ---
 
