@@ -7,17 +7,17 @@ spec:
   chart: 
     spec:
       chart: keycloak
-      version: 23.0.0
+      version: 24.3.1
       interval: 5h 
       sourceRef:
         kind: HelmRepository
         name: keycloak
   interval: 1h 
   releaseName: keycloak
-  valuesFrom: 
-    - kind: ConfigMap 
-      name: keycloak-custom-config
-      valuesKey: custom-values.yaml
+  # valuesFrom: 
+  #   - kind: ConfigMap 
+  #     name: keycloak-custom-config
+  #     valuesKey: custom-values.yaml
 
 ---
 
