@@ -62,15 +62,15 @@ data:
                 mountPath: /var/lib/postgresql/data
                 subPath: null
         securityContext:
-          fsGroup: 999
-          runAsUser: 999
+          fsGroup: 1001
+          runAsUser: 1001
     redis: 
       master: 
         podSecurityContext: 
-          fsGroup: 999
-          runAsUser: 999
+          fsGroup: 1001
+          runAsUser: 1001
         containerSecurityContext:
-          runAsUser: 999
+          runAsUser: 1001
 
         
         
