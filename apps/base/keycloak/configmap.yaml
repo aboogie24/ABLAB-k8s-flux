@@ -32,7 +32,7 @@ data:
     postgresql: 
       enabled: true
     tls: 
-      enabled: true
+      enabled: false
     ingress: 
       enabled: true
       ingressClassName: nginx
