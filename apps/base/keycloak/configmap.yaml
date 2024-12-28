@@ -25,10 +25,12 @@ data:
             key: admin-password
       - name: KC_PROXY
         value: edge
+      - name: KC_HTTP_ENABLED
+        value: "true"
       - name: KC_HOSTNAME_STRICT
-        value: "true"
+        value: "false"
       - name: KC_HOSTNAME_STRICT_HTTPS
-        value: "true"
+        value: "false"
     postgresql: 
       enabled: true
     tls: 
