@@ -12,6 +12,10 @@ data:
           secretKeyRef: 
             name: keycloak-secret
             key: admin-password
+    service: 
+      ports: 
+        https: 8443
+        http: 80
     adminIngress: 
       enabled: true
       hostname: keycloak.alfredbrowniii.io
