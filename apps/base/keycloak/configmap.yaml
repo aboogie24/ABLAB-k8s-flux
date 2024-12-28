@@ -22,6 +22,8 @@ data:
     extraEnv: 
       - name: KEYCLOAK_USER
         value: admin
+      - name: KC_HOSTNAME
+        value: "keycloak.alfredbrowniii.io"
       - name: KEYCLOAK_PASSWORD
         valueFrom: 
           secretKeyRef: 
