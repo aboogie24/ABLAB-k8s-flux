@@ -53,6 +53,8 @@ data:
       annotations:    # Added necessary annotations for HTTPS backend
         nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         nginx.ingress.kubernetes.io/proxy-buffer-size: "128k"
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+        nginx.ingress.kubernetes.io/service-upstream: "true"
       rules:
         - host: keycloak.alfredbrowniii.io
           paths: 
