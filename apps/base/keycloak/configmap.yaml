@@ -43,6 +43,7 @@ data:
     ingress: 
       enabled: true
       ingressClassName: nginx
+      servicePort: https
       hostname: keycloak.alfredbrowniii.io
       rules:
         - host: keycloak.alfredbrowniii.io
