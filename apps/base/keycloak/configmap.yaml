@@ -8,17 +8,20 @@ data:
     auth: 
       adminUser: admin
       adminPassword: 
-        valuesfrom: 
+        valueFrom:    # Fixed the typo in 'valuesfrom'
           secretKeyRef: 
             name: keycloak-secret
             key: admin-password
     service: 
       ports: 
         https: 8443
-        http: 80
+        http: 8080    # Changed from 80 to 8080 to match Keycloak's default
     adminIngress: 
       enabled: true
       hostname: keycloak.alfredbrowniii.io
+      annotations:    # Added necessary annotations for HTTPS backend
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        nginx.ingress.kubernetes.io/proxy-buffer-size: "128k"
     extraEnv: 
       - name: KEYCLOAK_USER
         value: admin
@@ -47,6 +50,9 @@ data:
       ingressClassName: nginx
       servicePort: https
       hostname: keycloak.alfredbrowniii.io
+      annotations:    # Added necessary annotations for HTTPS backend
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        nginx.ingress.kubernetes.io/proxy-buffer-size: "128k"
       rules:
         - host: keycloak.alfredbrowniii.io
           paths: 
