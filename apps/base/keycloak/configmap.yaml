@@ -40,6 +40,8 @@ data:
         value: "false"
       - name: KC_HOSTNAME_STRICT_HTTPS
         value: "false"
+      - name: KC_HTTPS_PROTOCALS
+        value: "TLSv1.2,TLSv1.3"
     postgresql: 
       enabled: true
     tls: 
@@ -59,4 +61,9 @@ data:
         - host: keycloak.alfredbrowniii.io
           paths: 
             - path: / 
+              backend: 
+                service: 
+                  name: keycloak
+                  port: 
+                    name: https
               pathType: Prefix
