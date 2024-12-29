@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: keycloak
   interval: 1h 
-  releaseName: codecentric/keycloak
+  releaseName: keycloak
   valuesFrom: 
     - kind: ConfigMap 
       name: keycloak-custom-config
@@ -27,7 +27,7 @@ metadata:
   name: keycloak
   namespace: keycloak
 spec: 
-  url: oci://ghcr.io/codecentric/helm-charts/keycloak
+  url: oci://ghcr.io/codecentric/helm-charts
   type: oci
 
 ---
