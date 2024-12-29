@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: keycloak
   interval: 1h 
-  releaseName: keycloak
+  releaseName: codecentric/keycloak
   valuesFrom: 
     - kind: ConfigMap 
       name: keycloak-custom-config
