@@ -57,7 +57,7 @@ data:
         nginx.ingress.kubernetes.io/proxy-buffer-size: "128k"
         nginx.ingress.kubernetes.io/ssl-redirect: "true"
         nginx.ingress.kubernetes.io/service-upstream: "true"
-      rules:
+      extraRules:
         - host: keycloak.alfredbrowniii.io
           paths: 
             - path: / 
