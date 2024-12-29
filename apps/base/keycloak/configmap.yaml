@@ -112,9 +112,13 @@ data:
     args: []
 
     # Additional environment variables for Keycloak
-    extraEnv: ""
-      # - name: KEYCLOAK_LOGLEVEL
-      #   value: DEBUG
+    extraEnv: 
+      - name: KEYCLOAK_USER
+        value: admin 
+      - name KEYCLOAK_PASSWORD
+        value: admin
+      - name: KEYCLOAK_LOGLEVEL
+        value: DEBUG
       # - name: WILDFLY_LOGLEVEL
       #   value: DEBUG
       # - name: CACHE_OWNERS_COUNT
