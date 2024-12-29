@@ -113,10 +113,6 @@ data:
 
     # Additional environment variables for Keycloak
     extraEnv: |
-      - name: KEYCLOAK_USER
-        value: admin 
-      - name KEYCLOAK_PASSWORD
-        value: admin
       - name: KEYCLOAK_LOGLEVEL
         value: DEBUG
 
