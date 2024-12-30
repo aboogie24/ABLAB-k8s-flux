@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cert-manager
-  namespace: cert-manaer
+  namespace: cert-manager
 data:
   custom-values.yaml: |
     crds: 
