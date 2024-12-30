@@ -29,7 +29,7 @@ metadata:
   namespace: keycloak2
 spec:
   ca:
-    secretName: root-secret
+    secretName: root-secret2
 
 ---
 
