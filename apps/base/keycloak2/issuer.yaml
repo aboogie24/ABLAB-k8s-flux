@@ -1,19 +1,19 @@
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: selfsigned-issuer
-spec:
-  selfSigned: {}
+# apiVersion: cert-manager.io/v1
+# kind: ClusterIssuer
+# metadata:
+#   name: selfsigned-issuer
+# spec:
+#   selfSigned: {}
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: keycloak-ca
-  namespace: keycloak
+  name: keycloak-ca2
+  namespace: keycloak2
 spec:
   isCA: true
-  commonName: keycloak-ca
-  secretName: root-secret
+  commonName: keycloak-ca2
+  secretName: root-secret2
   privateKey:
     algorithm: ECDSA
     size: 256
@@ -26,7 +26,7 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: keycloak-ca-issuer
-  namespace: keycloak
+  namespace: keycloak2
 spec:
   ca:
     secretName: root-secret
@@ -36,8 +36,8 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: keycloak
-  namespace: keycloak
+  name: keycloak2
+  namespace: keycloak2
 spec:
   secretName: keycloak-tls
   duration: 2160h
@@ -53,9 +53,9 @@ spec:
   usages:
     - server auth
     - client auth
-  commonName: keycloak.alfredbrowniii.io
+  commonName: keycloak2.alfredbrowniii.io
   dnsNames:
-    - keycloak.alfredbrowniii.io
+    - keycloak2.alfredbrowniii.io
   issuerRef:
     name: keycloak-ca-issuer
     kind: Issuer
