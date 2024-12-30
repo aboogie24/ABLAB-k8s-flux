@@ -30,3 +30,32 @@ metadata:
 spec:
   ca:
     secretName: root-secret
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: keycloak
+  namespace: keycloak
+spec:
+  secretName: keycloak-tls
+  duration: 2160h
+  renewBefore: 360h
+  subject:
+    organizations:
+      - alfredbrowniii.io
+  isCA: false
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS1
+    size: 2048
+  usages:
+    - server auth
+    - client auth
+  commonName: keycloak.alfredbrowniii.io
+  dnsNames:
+    - keycloak.alfredbrowniii.io
+  issuerRef:
+    name: keycloak-ca-issuer
+    kind: Issuer
