@@ -18,7 +18,7 @@ data:
       servicePort: https 
       tls: true 
       extraTls: 
-        - hosts: 
-            - keycloak2.alfredbrowniii.io
-            secretName: keycloak-tls
+      - hosts: 
+        - keycloak2.alfredbrowniii.io
+        secretName: keycloak-tls
     
