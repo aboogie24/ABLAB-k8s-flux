@@ -1,5 +1,5 @@
 resources:
-  - secret.yaml
+  #- secret.yaml
   - configmap.yaml
   - release.yaml
   - issuer.yaml
