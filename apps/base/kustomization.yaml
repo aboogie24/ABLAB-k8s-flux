@@ -2,3 +2,4 @@ resources:
   - test.yaml
   - ./dashboard
   - ./keycloak
+  - ./keycloak2

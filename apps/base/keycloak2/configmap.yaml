@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: keycloak-custom-config
+  namespace: keycloak2
+data:
+  custom-values.yaml: |
+    production: true
+    auth: 
+      createAdminUser: true 
+      adminUser: admin 
+      adminPassword: admin
+    tls: 
+      enabled: true
+      hostname: keycloak2.alfredbrowniii.io
+      annotations: 
+        nginx.ingress.kubernetes.io/backend-protocol: HTTPS 
+      servicePort: https 
+      tls: true 
+      extraTls: 
+        - hosts: 
+            - keycloak2.alfredbrowniii.io
+            secretName: keycloak-tls
+    
