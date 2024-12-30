@@ -4,4 +4,4 @@ resources:
   #- ./rook
   - ./driver-nfs
   #- ./rbac-controller
-  #- ./cert-manager
+  - ./cert-manager
