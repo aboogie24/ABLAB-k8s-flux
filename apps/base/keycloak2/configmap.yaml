@@ -19,6 +19,7 @@ data:
       hostname: keycloak2.alfredbrowniii.io
       annotations: 
         nginx.ingress.kubernetes.io/backend-protocol: HTTPS 
+        
       servicePort: https 
       tls: true 
       extraTls: 
